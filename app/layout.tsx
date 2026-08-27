@@ -1,10 +1,15 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
+import { absoluteUrl, siteName, siteDescription } from '@/lib/seo'
 
 export const metadata: Metadata = {
-  title: 'FUTO Central — FUTO News, Campus Updates & Stories',
-  description: 'FUTO Central brings you the latest news, announcements, campus stories, academic updates, events, opportunities and developments from the Federal University of Technology, Owerri.',
+  metadataBase: new URL(absoluteUrl('/')),
+  title: { default: `${siteName} — FUTO News, Campus Updates & Stories`, template: `%s | ${siteName}` },
+  description: siteDescription,
+  alternates: { canonical: '/', types: { 'application/rss+xml': '/rss.xml' } },
+  openGraph: { siteName, type: 'website', url: '/', title: `${siteName} — FUTO News, Campus Updates & Stories`, description: siteDescription, images: [{ url: '/og-image.png', width: 1200, height: 630, alt: siteName }] },
+  twitter: { card: 'summary_large_image', title: `${siteName} — FUTO News, Campus Updates & Stories`, description: siteDescription, images: ['/og-image.png'] },
   generator: 'v0.app',
   icons: {
     icon: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/favicon-32x32-vEY30c4JOE2iKePtBlVSFF4A4q9cnk.png',
