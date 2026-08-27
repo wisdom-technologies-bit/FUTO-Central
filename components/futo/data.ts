@@ -19,7 +19,7 @@ export type Article = {
 }
 
 export const images = {
-  hero: 'https://res.cloudinary.com/afogmyot/image/upload/v1787824167/otakunaija/u9otvjhhzsfsnjohhshf.jpg',
+  hero: 'https://res.cloudinary.com/afogmyot/image/upload/v1787838825/otakunaija/tpc8d59drqhvunc09zcu.jpg',
   students: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=85',
   lab: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=900&q=85',
   campus: 'https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=85',
