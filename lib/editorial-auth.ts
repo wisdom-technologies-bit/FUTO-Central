@@ -46,7 +46,7 @@ export async function authenticateAdmin(email: string, password: string) {
   await pool.query(`INSERT INTO sessions (admin_id, token_hash, expires_at) VALUES ($1, $2, now() + $3::interval)`, [admin.id, hashToken(token), `${SESSION_DAYS} days`])
   await pool.query(`UPDATE admins SET last_login_at = now(), updated_at = now() WHERE id = $1`, [admin.id])
   const jar = await cookies()
-  jar.set(SESSION_COOKIE, token, { httpOnly: true, secure: process.env.NODE_ENV === 'production', sameSite: 'lax', path: '/', maxAge: SESSION_DAYS * 86400 })
+  jar.set(SESSION_COOKIE, token, { httpOnly: true, secure: process.env.NODE_ENV === 'production', sameSite: process.env.NODE_ENV === 'development' ? 'none' : 'lax', path: '/', maxAge: SESSION_DAYS * 86400 })
   return { id: admin.id, email: admin.email, name: admin.name, role: admin.role }
 }
 
