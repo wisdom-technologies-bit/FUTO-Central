@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import NewsPage from '@/components/futo/news-page'
+import { getPublishedArticles } from '@/lib/news-db'
 
 export const metadata: Metadata = {
   title: 'FUTO News — Latest News, Updates & Stories | FUTO Central',
@@ -7,4 +8,6 @@ export const metadata: Metadata = {
   openGraph: { title: 'FUTO News — Latest News, Updates & Stories | FUTO Central', description: 'The latest stories and updates from the FUTO community.' },
 }
 
-export default function Page() { return <NewsPage /> }
+export const dynamic = 'force-dynamic'
+
+export default async function Page() { return <NewsPage articles={await getPublishedArticles()} /> }
