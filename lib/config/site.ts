@@ -13,8 +13,6 @@ export type StorySubmission = { fullName: string; email: string; phone?: string;
 export type ContactMessage = { name: string; email: string; subject: string; message: string }
 export type MediaAsset = { publicId: string; secureUrl: string; resourceType: 'image' | 'video'; format: string; width?: number; height?: number; duration?: number }
 
-export async function createStorySubmission(_payload: StorySubmission) { throw new Error('Story submission storage is not configured yet.') }
-export async function sendContactMessage(_payload: ContactMessage) { throw new Error('Contact delivery is not configured yet.') }
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 export function validateContact(input: Partial<ContactMessage>) { const errors: Record<string,string> = {}; if (!input.name?.trim()) errors.name='Please enter your name.'; if (!input.email || !emailPattern.test(input.email)) errors.email='Please enter a valid email address.'; if (!input.subject?.trim()) errors.subject='Please enter a subject.'; if (!input.message?.trim()) errors.message='Please enter your message.'; return errors }
 export function validateSubmission(input: Partial<StorySubmission>) { const errors: Record<string,string> = {}; if (!input.fullName?.trim()) errors.fullName='Please enter your name.'; if (!input.email || !emailPattern.test(input.email)) errors.email='Please enter a valid email address.'; if (!input.title?.trim()) errors.title='Please enter a story title.'; if (!input.category) errors.category='Please choose a category.'; if (!input.summary?.trim()) errors.summary='Please add a brief summary.'; if (!input.content?.trim()) errors.content='Please provide story details.'; return errors }
