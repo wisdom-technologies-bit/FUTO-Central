@@ -2,9 +2,9 @@ export const siteName = 'FUTO Central'
 export const siteDescription = 'Independent news and information for the FUTO community.'
 
 export function getSiteUrl() {
-  const configured = process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL || process.env.VERCEL_PROJECT_PRODUCTION_URL || process.env.VERCEL_URL
+  const configured = process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL
   if (configured) return configured.startsWith('http') ? configured.replace(/\/$/, '') : `https://${configured}`
-  return 'https://futocentral.vercel.app'
+  return 'https://futocentral.name.ng'
 }
 
 export function absoluteUrl(path = '/') {
