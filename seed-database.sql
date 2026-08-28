@@ -17,7 +17,7 @@ CREATE INDEX IF NOT EXISTS articles_category_idx ON articles(category_id);
 CREATE INDEX IF NOT EXISTS events_starts_idx ON events(starts_at);
 CREATE INDEX IF NOT EXISTS submissions_status_idx ON story_submissions(status, created_at DESC);
 INSERT INTO categories (name, slug, description) VALUES ('Campus News','campus-news','Updates and developments across the FUTO community.'),('Academics','academics','Research, learning and academic achievement.'),('Student Life','student-life','The people, clubs and experiences shaping campus life.'),('Events','events','Programs, gatherings and activities.'),('Sports','sports','Competition and sporting life at FUTO.'),('Technology & Innovation','technology-innovation','Practical ideas, research and innovation.'),('Opportunities','opportunities','Scholarships, internships and useful pathways.'),('Community','community','Stories about shared progress and community.') ON CONFLICT (slug) DO NOTHING;
-INSERT INTO site_settings (key, value) VALUES ('publication', '{"name":"FUTO Central","contactEmail":"hello@futocentral.example"}'::jsonb) ON CONFLICT (key) DO NOTHING;
+INSERT INTO site_settings (key, value) VALUES ('publication', '{"name":"FUTO Central","contactEmail":"hello@futocentral.name.ng"}'::jsonb) ON CONFLICT (key) DO NOTHING;
 -- The super-admin email is seeded without a credential. Generate an Argon2id hash server-side before inserting password_hash.
 INSERT INTO admins (email, name, role) VALUES ('wisdommeremeze@gmail.com','Super Administrator','super_admin') ON CONFLICT (email) DO NOTHING;
 
