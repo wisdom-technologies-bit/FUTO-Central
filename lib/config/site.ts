@@ -1,9 +1,9 @@
 export const siteConfig = {
   name: 'FUTO Central',
   description: 'Independent news and information for the FUTO community.',
-  contactEmail: 'hello@futocentral.example',
-  privacyEmail: 'privacy@futocentral.example',
-  editorialEmail: 'editorial@futocentral.example',
+  contactEmail: 'hello@futocentral.name.ng',
+  privacyEmail: 'privacy@futocentral.name.ng',
+  editorialEmail: 'editorial@futocentral.name.ng',
   socialLinks: { Facebook: '#', X: '#', Instagram: '#', WhatsApp: '#', YouTube: '#' },
 } as const
 
