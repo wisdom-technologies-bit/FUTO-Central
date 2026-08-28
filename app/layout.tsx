@@ -1,5 +1,6 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
+import Script from 'next/script'
 import './globals.css'
 import { absoluteUrl, siteName, siteDescription } from '@/lib/seo'
 
@@ -30,9 +31,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
-        {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
-      </body>
+  {children}
+
+  <Script
+    async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5717691070315159"
+    crossOrigin="anonymous"
+    strategy="afterInteractive"
+  />
+
+  {process.env.NODE_ENV === 'production' && <Analytics />}
+</body>
     </html>
   )
 }
